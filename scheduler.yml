@@ -12,6 +12,6 @@ jobs:
     steps:
       - name: Trigger Edge Function
         run: |
-          curl -X POST 'https://YOUR_PROJECT_REF.supabase.co/functions/v1/YOUR_FUNCTION_NAME' \
-          -H 'Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}' \
+          curl -X POST 'https://zsjyalitccycsohsysjl.supabase.co/functions/v1/send-notification-by-topics' \
+          -H 'Authorization: Bearer ${{ secrets.SUPABASE_KEY }}' \
           -H 'Content-Type: application/json'
