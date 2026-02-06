@@ -1,0 +1,17 @@
+name: Send Daily Notification
+
+on:
+  schedule:
+    # This runs at 6:00 AM UTC every day. Change as needed.
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Allows you to click a button to test it manually
+
+jobs:
+  wake_up_supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Edge Function
+        run: |
+          curl -X POST 'https://YOUR_PROJECT_REF.supabase.co/functions/v1/YOUR_FUNCTION_NAME' \
+          -H 'Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}' \
+          -H 'Content-Type: application/json'
